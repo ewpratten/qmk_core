@@ -33,7 +33,6 @@
 #define PKT_LEN RAW_EPSIZE
 static uint8_t packet_buf[PKT_LEN];
 
-extern bool bootloader_reset;
 extern const uint8_t keymap_layouts[NUM_LAYOUTS][MATRIX_ROWS][MATRIX_COLS];
 extern const char *layout_names[NUM_LAYOUTS];
 
@@ -134,9 +133,7 @@ void OVERRIDE raw_hid_receive(uint8_t *data, uint8_t length) {
             case CMD_RESET:
                 switch (data[1]) {
                     case SUB_RESET_BL:
-//                        bootloader_jump();
-//                        reset_keyboard();
-                        bootloader_reset = true;
+                        reset_keyboard();
                         return;
                     case SUB_RESET_FW:
                         firmware_reset();
