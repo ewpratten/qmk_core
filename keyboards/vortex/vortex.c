@@ -20,6 +20,7 @@
 #include "quantum.h"
 #include "raw_hid.h"
 #include "debug.h"
+#include "usb_descriptor.h"
 
 #include <stdint.h>
 #include <string.h>
