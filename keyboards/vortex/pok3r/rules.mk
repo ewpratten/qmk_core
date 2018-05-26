@@ -2,6 +2,7 @@
 
 SRC = \
 	matrix.c \
+	suspend.c \
 	eeprom.c \
 	backlight.c
 
