@@ -22,6 +22,7 @@
 #include "raw_hid.h"
 #include "debug.h"
 #include "gd25q_flash.h"
+#include "usb_descriptor.h"
 
 #include <stdint.h>
 #include <string.h>
