@@ -3,27 +3,20 @@
 This repository contains keyboard firmware based on the [qmk\_firmware](http://github.com/qmk/qmk_firmware) project for a number of Holtek MCU-based keyboards. See below for supported and planned keyboards.
 
 ## Building
-
-    make vortex/pok3r:default vortex/pok3r_rgb:default vortex/core:default
+```sh
+make git-submodule
+make vortex/core:ewpratten
+```
 
 ## Installation
 
-WARNING: This firmware only works on [unlocked](https://github.com/pok3r-custom/pok3r_re_firmware/wiki/HT32-Unlocking) keyboards.
-On not-unlocked keyboards, the firmware will hard fault at boot, requiring a JTAG programmer to reprogram.
+**WARNING: This firmware only works on [unlocked](https://github.com/pok3r-custom/pok3r_re_firmware/wiki/HT32-Unlocking) keyboards.**
+*On not-unlocked keyboards, the firmware will hard fault at boot, requiring a JTAG programmer to reprogram.*
 
-    ./pok3rtool -t pok3r flash "QMK_POK3R" <path_to_qmk_pok3r>/vortex_pok3r_default.bin
+```sh
+./pok3rtool -t vortex-core flash QMK_CORE_EW ./vortex_core_ewpratten.bin
+```
 
 ## Supported Keyboards
 
-* [Vortex POK3R](/keyboards/vortex/pok3r/)
-* [Vortex POK3R RGB](/keyboards/vortex/pok3r_rgb/) (not stable)
-* [Vortex Core](/keyboards/vortex/core/) (not stable)
-* Vortex RACE3 (planned)
-* Vortex ViBE (planned)
-* KBP V60 (planned)
-* KBP V80 (planned)
-
-## Related
-
-* [pok3rtool](https://github.com/pok3r-custom/pok3rtool) - CLI dev tool for pok3r keyboards
-* [Pok3rConf](https://github.com/pok3r-custom/Pok3rConf) - GUI configuration tool for pok3r keyboards
+At the moment, I only support the Vortex Core. Upstream versions of this repo support more boards.
