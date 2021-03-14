@@ -43,7 +43,7 @@ const uint16_t keymaps_default[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT_core(
         _______, KC__VOLDOWN, KC__VOLUP, KC__MUTE, _______, _______, _______, KC_PGUP, _______,   KC_PGDN, KC_PSCR, KC_SLCK, KC_PAUS,
         KC_CAPS, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,KC_INS,  _______,
-        _______, KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP, _______, _______, KC_HOME, KC_END,  _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, KC_HOME, KC_END,  _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [2] = LAYOUT_core(
