@@ -19,7 +19,10 @@
 
 enum custom_keycodes {
     BASE_MACRO_KEY = SAFE_RANGE,
-    CK_COPY_TO_NEW_TAB
+    CK_COPY_TO_NEW_TAB,
+    CK_BUILD,
+    CK_VSCODE_MENU,
+    CK_MACRO_MUTE
 };
 
 const uint16_t keymaps_default[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -42,7 +45,7 @@ const uint16_t keymaps_default[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_core(
         KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,  KC_BSPC,
         KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
-        KC_LSPO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_RSPC, MO(2),
+        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_RSPC, MO(2),
         KC_LCTL, KC_LALT, KC_LGUI, MO(3),   KC_SPC,  KC_SPC,  MO(1),   KC_RALT, MO(4),  KC_RCTL
     ),
     [1] = LAYOUT_core(
@@ -58,9 +61,9 @@ const uint16_t keymaps_default[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [3] = LAYOUT_core(
-        _______,  _______,_______, _______, _______, CK_COPY_TO_NEW_TAB, _______, _______, _______, _______, _______, _______, _______,
+        _______,  _______,_______, _______, _______, CK_COPY_TO_NEW_TAB, _______, _______, _______, _______, CK_VSCODE_MENU, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, CK_BUILD, _______, CK_MACRO_MUTE, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [4] = LAYOUT_core(
@@ -99,6 +102,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 SEND_STRING(SS_DOWN(X_LCTRL)"ctv"SS_UP(X_LCTRL));
             }
+            break;
+        case CK_BUILD:
+            if (record->event.pressed) {
+                SEND_STRING(SS_DOWN(X_LCTRL)SS_DOWN(X_LSHIFT)"b"SS_UP(X_LCTRL)SS_UP(X_LSHIFT));
+            }
+            break;
+        case CK_VSCODE_MENU:
+            if (record->event.pressed) {
+                SEND_STRING(SS_DOWN(X_LCTRL)SS_DOWN(X_LSHIFT)"p"SS_UP(X_LCTRL)SS_UP(X_LSHIFT));
+            }
+            break;
+        case CK_MACRO_MUTE:
+            if (record->event.pressed) {
+                SEND_STRING(SS_DOWN(X_LCTRL)SS_DOWN(X_LSHIFT)SS_DOWN(X_F24)SS_UP(X_F24)SS_UP(X_LCTRL)SS_UP(X_LSHIFT));
+            }
+            break;
     }
     return true;
 }
