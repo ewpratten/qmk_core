@@ -2,4 +2,4 @@
 # Dummy Rules
 
 # Set up bootmagic support
-BOOTMAGIC_ENABLE = full
+# BOOTMAGIC_ENABLE = full
