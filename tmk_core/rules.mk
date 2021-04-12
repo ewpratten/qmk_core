@@ -90,9 +90,9 @@ endif
 endif
 CFLAGS += -Wall
 CFLAGS += -Wstrict-prototypes
-ifneq ($(strip $(ALLOW_WARNINGS)), yes)
-    CFLAGS += -Werror
-endif
+# ifneq ($(strip $(ALLOW_WARNINGS)), yes)
+#     CFLAGS += -Werror
+# endif
 #CFLAGS += -mshort-calls
 #CFLAGS += -fno-unit-at-a-time
 #CFLAGS += -Wundef
@@ -116,9 +116,9 @@ CPPFLAGS += -O$(OPT)
 CPPFLAGS += -w
 CPPFLAGS += -Wall
 CPPFLAGS += -Wundef
-ifneq ($(strip $(ALLOW_WARNINGS)), yes)
-    CPPFLAGS += -Werror
-endif
+# ifneq ($(strip $(ALLOW_WARNINGS)), yes)
+#     CPPFLAGS += -Werror
+# endif
 #CPPFLAGS += -mshort-calls
 #CPPFLAGS += -fno-unit-at-a-time
 #CPPFLAGS += -Wstrict-prototypes
