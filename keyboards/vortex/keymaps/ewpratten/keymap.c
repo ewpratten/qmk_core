@@ -1,18 +1,7 @@
 /*
- * Copyright (c) 2018 Charlie Waters
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * Evan Pratten's keymaps for the Vortex Core keyboard.
+ * 
+ * All contents of this file are custom, and subject to wild change. Good luck.
  */
 
 #include "vortex.h"
@@ -22,7 +11,9 @@ enum custom_keycodes {
     CK_COPY_TO_NEW_TAB,
     CK_BUILD,
     CK_VSCODE_MENU,
-    CK_MACRO_MUTE
+    CK_MACRO_MUTE,
+    CK_PASTE_SHRUGGIE,
+    CK_PASTE_RICKROLL
 };
 
 const uint16_t keymaps_default[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -61,8 +52,8 @@ const uint16_t keymaps_default[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [3] = LAYOUT_core(
-        _______,  _______,_______, _______, _______, CK_COPY_TO_NEW_TAB, _______, _______, _______, _______, CK_VSCODE_MENU, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______,  _______,_______, _______, CK_PASTE_RICKROLL, CK_COPY_TO_NEW_TAB, _______, _______, _______, _______, CK_VSCODE_MENU, _______, _______,
+        _______, _______, CK_PASTE_SHRUGGIE, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, CK_BUILD, _______, CK_MACRO_MUTE, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
@@ -116,6 +107,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case CK_MACRO_MUTE:
             if (record->event.pressed) {
                 SEND_STRING(SS_DOWN(X_LCTRL)SS_DOWN(X_LSHIFT)SS_DOWN(X_F24)SS_UP(X_F24)SS_UP(X_LCTRL)SS_UP(X_LSHIFT));
+            }
+            break;
+        case CK_PASTE_SHRUGGIE:
+            if (record->event.pressed) {
+                SEND_STRING("¯\\_(ツ)_/¯");
+            }
+            break;
+        case CK_PASTE_RICKROLL:
+            if (record->event.pressed) {
+                SEND_STRING("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
             }
             break;
     }
